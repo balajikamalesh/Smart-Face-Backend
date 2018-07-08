@@ -8,6 +8,7 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
+app.use(cors());
 
 const db = knex({
   client: 'pg',
@@ -20,7 +21,6 @@ const db = knex({
 });
 
 app.use(bodyParser.json());
-app.use(cors());
 
 app.get('/', (req,res) => {
 	res.send('Its working ');
